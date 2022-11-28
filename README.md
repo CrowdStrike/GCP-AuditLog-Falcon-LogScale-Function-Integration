@@ -1,32 +1,9 @@
 
 ![CrowdStrike-logo](image/Crowdstrike1.png)
 [![Twitter URL](https://img.shields.io/twitter/url?label=Follow%20%40CrowdStrike&style=social&url=https%3A%2F%2Ftwitter.com%2FCrowdStrike)](https://twitter.com/CrowdStrike)<br/>
-# GCP Logging
-- This is a package for parsing and monitoring Audit-logs produced with the GCP function.
 
-## Package Contents
+# GCP Function triggered through pyhon using Pub/Sub to send events to Falcon/LogScale.
 
-- parsers
-
-- gcp-audit-log  
-
-- Dashboards samples 
-- python code
-
-## Monitoring - A dashboard for monitoring uptime and errors through LogScale 
-
-Well defined field:
-
-- DEBUG
-- INFO
-- WARNING
-- ERROR
-- METHODS
-- PrincipalEmail
-
-## Support
-
-This package is supported by our product support team. If you have any issues implementing or running this package, please go to support@crowdstrike.com for assistance. 
 
 
 ## Configure and setup gcp function
@@ -40,6 +17,33 @@ This package is supported by our product support team. If you have any issues im
 - The selected Code level is Python 3.8.
 - Update the code based on the requirement and then select “Deploy”. This will save the configuration.
 
+##  Configuring Pub/Sub in Google Cloud
+![Pub-Sub](image/Pub-Sub-configuration.png)
+
+## Diagram 
+![Flow](imge/Log-Routing-Sink.png) 
+
+## Prepare LogScale
+- Setup the Ingest Repository
+- select, or create a target ingest repository
+
+![Repository](image/newRepository.png)
+
+# Installing LogScale(Humio) Log Collector on Linux 
+
+[LogCollector](https://library.humio.com/humio-server/log-shippers-log-collector-install-linux.html)
+
+- create an ingest token, or use the default token
+
+## configure ingest parsing
+
+parseJson(handleNull=empty) | parseTimestamp(field=timestamp)
+
+
+
+## Support
+
+This package is supported by our product support team. If you have any issues implementing or running this package, please go to support@crowdstrike.com for assistance.
 
 
 Setuop parser in logscale repository and generate token that will be used to configure (pub/sub) GCP function.
@@ -47,28 +51,11 @@ Setuop parser in logscale repository and generate token that will be used to con
 ## Example configuring python script ( main.py)  to transfer audit-log  to LogScale Repository
 
 Example below shows how to setup token in main.py file.
-import base64
-import json
-import urllib3
 
 http = urllib3.PoolManager()
 dest_url = "https://cloud.community.humio.com/api/v1/ingest/hec/raw"
 dest_token1 = <xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx>
 header1 = {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + dest_token1}
-
-def send_data(event, context):
-
-    import base64
-
-    print("""This Function was triggered by messageId {} published at {} to {}
-    """.format(context.event_id, context.timestamp, context.resource["name"]))
-
-    if 'data' in event:
-
-        newevent = base64.b64decode(event['data']).decode('utf-8')
-        http.request('POST', dest_url,body=newevent,headers=header1)
-
-
 
 
 ## Dependencies
