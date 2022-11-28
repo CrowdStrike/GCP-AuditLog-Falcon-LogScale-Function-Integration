@@ -21,7 +21,7 @@
 ![Pub-Sub](image/Pub-Sub-configuration.png)
 
 ## Diagram 
-![Flow](imge/Log-Routing-Sink.png) 
+![Flow](image/Log-Routing-Sink.png) 
 
 ## Prepare LogScale
 - Setup the Ingest Repository
@@ -54,7 +54,7 @@ Example below shows how to setup token in main.py file.
 
 http = urllib3.PoolManager()
 dest_url = "https://cloud.community.humio.com/api/v1/ingest/hec/raw"
-dest_token1 = <xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx>
+dest_token1 = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 header1 = {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + dest_token1}
 
 
