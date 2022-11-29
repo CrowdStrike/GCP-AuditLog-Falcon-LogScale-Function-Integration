@@ -2,7 +2,7 @@
 ![CrowdStrike-logo](image/Crowdstrike1.png)
 [![Twitter URL](https://img.shields.io/twitter/url?label=Follow%20%40CrowdStrike&style=social&url=https%3A%2F%2Ftwitter.com%2FCrowdStrike)](https://twitter.com/CrowdStrike)<br/>
 
-# GCP Function triggered through pyhon using Pub/Sub to send events to Falcon/LogScale.
+# GCP Function: Audit Logs to Falcon/LogScale Shipper
 
 
 
@@ -20,7 +20,7 @@
 ##  Configuring Pub/Sub in Google Cloud
 ![Pub-Sub](image/Pub-Sub-configuration.png)
 
-## Diagram 
+## Flow Chart  Diagram 
 ![Flow](image/Log-Routing-Sink.png) 
 
 ## Prepare LogScale
@@ -68,5 +68,12 @@ parseJson(handleNull=empty) | parseTimestamp(field=timestamp)
 
 ## Time Zones
 The parser will try to automatically detect timestamps in the logs, including time zone information. If no time zone is present though, the parser will assume the timestamp is UTC time. The best solution is to include timestamp information in the logs, but you can also modify the parser to provide a different default. Find the timezone argument in the findTimestamp function to change it.
+
+
+---
+
+<p align="center"><img src="https://raw.githubusercontent.com/CrowdStrike/AWS-Kinesis-Falcon-Logscale-Lambda-Integration/main/image/cs-logo-footer.png"><BR/><img width="250px" src="https://raw.githubusercontent.com/CrowdStrike/AWS-Kinesis-Falcon-Logscale-Lambda-Integration/main/docs/assets/adversary-red-eyes.png"></p>
+<h3><p align="center">WE STOP BREACHES</p></h3>
+
 
 
