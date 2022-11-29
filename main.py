@@ -1,9 +1,21 @@
-# copy this code to setup the at pub/sub main.py code
+"""CrowdStrike LogScale GCP integration.
 
+ _______                        __ _______ __        __ __
+|   _   .----.-----.--.--.--.--|  |   _   |  |_.----|__|  |--.-----.
+|.  1___|   _|  _  |  |  |  |  _  |   1___|   _|   _|  |    <|  -__|
+|.  |___|__| |_____|________|_____|____   |____|__| |__|__|__|_____|
+|:  1   |                         |:  1   |
+|::.. . |                         |::.. . | LogScale GCP integration
+`-------'                         `-------'
 
+This code is an example for pub / sub setup.
+
+11.28.22 - @@ihaque55
+"""
 import base64
 import json
 import urllib3
+
 
 http = urllib3.PoolManager()
 dest_url = "https://cloud.community.humio.com/api/v1/ingest/hec/raw"
