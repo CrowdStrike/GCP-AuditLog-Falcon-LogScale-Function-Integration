@@ -52,16 +52,17 @@ Setuop parser in logscale repository and generate token that will be used to con
 
 Example below shows how to setup token in main.py file.
 
+```python
 http = urllib3.PoolManager()
 dest_url = "https://cloud.community.humio.com/api/v1/ingest/hec/raw"
 dest_token1 = xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 header1 = {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + dest_token1}
-
+```
 
 ## Dependencies
 - Log Output
 
-This package requires minimum  parsing configuration in the parser.
+This package requires minimum parsing configuration in the parser.
 
 parseJson(handleNull=empty) | parseTimestamp(field=timestamp)
 
