@@ -20,6 +20,6 @@ def send_data(event, context):
     if 'data' in event:
 
         newevent = base64.b64decode(event['data']).decode('utf-8')
-        http.request('POST', dest_url,body=newevent,headers=header1)
+        http.request('POST', dest_url, body=newevent, headers=header1)
 
 
