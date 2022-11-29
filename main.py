@@ -11,8 +11,7 @@ dest_token1 = <xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx>
 header1 = {'Content-Type': 'application/json', 'Authorization': 'Bearer ' + dest_token1}
 
 def send_data(event, context):
-
-    import base64
+    """Send the event to LogScale."""
 
     print("""This Function was triggered by messageId {} published at {} to {}
     """.format(context.event_id, context.timestamp, context.resource["name"]))
